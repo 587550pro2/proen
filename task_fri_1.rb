@@ -1,11 +1,11 @@
 #Ensoding = Shift_JIS
-while str = gets
+while
+ str = gets
 	str.chomp!
-	unless /(<TITLE>|<SUBTITLE>)/ =~ str
-		print (str)
-		print "\n"
+	if /(<TITLE>|<SUBTITLE>)/ =~ str
+		str.sub!(/.*/,"")
+		#print str
 	else
-		str.delete("\w")
 		print str
 		print "\n"
 	end
